@@ -13,11 +13,9 @@ function Interview({ params }) {
   const [webCamEnabled, setWebCamEnabled] = useState(false);
 
   useEffect(() => {
-    // console.log(params.interviewId);
     GetInterviewDetails();
   }, []);
 
-  // use to get interview details by Mockid/interview id.
   const GetInterviewDetails = async () => {
     const result = await db
       .select()
@@ -27,60 +25,72 @@ function Interview({ params }) {
     setInterviewData(result[0]);
   };
   return (
-    <div className="my-10 flex-col">
-      <h2 className="font-bold text-2xl">Let's Get Started</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div className="flex flex-col my-5 gap-10">
-          <div className="flex flex-col p-5 rounded-lg border gap-5">
-            <h2 className="text-lg">
-              <strong>Job Role/Job Position:</strong>
+    <div className="max-w-4xl mx-auto py-2 flex-col">
+      <h2 className="font-extrabold text-3xl tracking-tight text-zinc-900 dark:text-zinc-50 mb-6">Let's Get Started</h2>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col p-6 bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800 rounded-2xl gap-4 shadow-sm">
+            <h2 className="text-base text-zinc-700 dark:text-zinc-300">
+              <strong className="text-zinc-900 dark:text-zinc-100 font-semibold block text-xs uppercase tracking-wider mb-1">Job Role / Job Position:</strong>
               {interviewData?.jobPosition}
             </h2>
-            <h2 className="text-lg">
-              <strong>Job Description/Tech Stack:</strong>
+            <h2 className="text-base text-zinc-700 dark:text-zinc-300">
+              <strong className="text-zinc-900 dark:text-zinc-100 font-semibold block text-xs uppercase tracking-wider mb-1">Job Description / Tech Stack:</strong>
               {interviewData?.jobDesc}
             </h2>
-            <h2 className="text-lg">
-              <strong>Years of experience:</strong>
-              {interviewData?.jobExperience}
+            <h2 className="text-base text-zinc-700 dark:text-zinc-300">
+              <strong className="text-zinc-900 dark:text-zinc-100 font-semibold block text-xs uppercase tracking-wider mb-1">Years of Experience:</strong>
+              {interviewData?.jobExperience} {interviewData?.jobExperience === 1 ? 'Year' : 'Years'}
             </h2>
           </div>
-          <div className="p-5 border rounded-lg border-yellow-300 bg-yellow-100">
-            <h2 className="flex gap-2 items-center text-yellow-500">
-              <Lightbulb />
-              <strong>Information</strong>
+          
+          <div className="p-5 border border-amber-200/60 dark:border-amber-900/40 bg-amber-50/50 dark:bg-amber-950/10 rounded-2xl shadow-sm">
+            <h2 className="flex gap-2 items-center text-amber-800 dark:text-amber-400 font-bold text-sm">
+              <Lightbulb className="h-4.5 w-4.5 text-amber-600" />
+              Information
             </h2>
-            <h2 className="mt-3 text-yellow-500">
+            <p className="mt-2.5 text-xs text-amber-700 dark:text-amber-300/80 leading-relaxed font-medium">
               {process.env.NEXT_PUBLIC_INFORMATION}
-            </h2>
+            </p>
           </div>
         </div>
-        <div>
+
+        <div className="flex flex-col items-center justify-center bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800 rounded-2xl p-6 shadow-sm min-h-[300px]">
           {webCamEnabled ? (
-            <Webcam
-              onUserMedia={() => setWebCamEnabled(true)}
-              onUserMediaError={() => setWebCamEnabled(false)}
-              mirrored={true}
-              style={{
-                height: 300,
-                width: 300,
-              }}
-            />
+            <div className="rounded-xl overflow-hidden border border-zinc-200 shadow-inner">
+              <Webcam
+                onUserMedia={() => setWebCamEnabled(true)}
+                onUserMediaError={() => setWebCamEnabled(false)}
+                mirrored={true}
+                audio={true}
+                muted={true}
+                style={{
+                  height: 300,
+                  width: 300,
+                }}
+              />
+            </div>
           ) : (
-            <>
-              <WebcamIcon className="h-72 w-full my-7 p-20 bg-secondary rounded-lg border" />
+            <div className="w-full flex flex-col items-center gap-4">
+              <WebcamIcon className="h-40 w-40 p-8 text-zinc-400 bg-zinc-50 dark:bg-zinc-800 rounded-2xl border border-zinc-200/60 dark:border-zinc-700/60" />
               <Button 
-              variant={"secondary"} className="w-full" onClick={() => setWebCamEnabled(true)}>
-                Enable Web Cam and Microphone
+                variant="outline" 
+                className="w-full rounded-xl border-zinc-200 hover:bg-zinc-50 dark:border-zinc-800 font-semibold text-xs text-zinc-700 dark:text-zinc-300 h-10 shadow-sm"
+                onClick={() => setWebCamEnabled(true)}
+              >
+                Enable Webcam and Microphone
               </Button>
-            </>
+            </div>
           )}
         </div>
       </div>
       
-      <div className="flex justify-end items-end">
+      <div className="flex justify-end mt-8">
         <Link href={'/dashboard/interview/'+params.interviewId+'/start'}>
-          <Button>Start Interview</Button>
+          <Button className="rounded-xl px-8 py-5 text-sm font-semibold shadow-md shadow-primary/20">
+            Start Interview
+          </Button>
         </Link>
       </div>
     </div>
