@@ -6,13 +6,13 @@ Welcome to **Mentorious**! This project is a modern, dynamic, and fully responsi
 
 ## ✨ Key Features
 
-🎨 **Futuristic UI/UX:** Designed with a sleek, dark-themed premium aesthetic featuring smooth transitions, clean layouts, and polished visual styles.
-🤖 **AI-Tailored Mock Interviews:** Provide your target job position, tech stack, and experience level, and the system automatically generates precise, role-specific interview questions.
-📹 **Video & Voice Integration:** Answer questions naturally using either video (webcam enabled) or voice-only mode, with real-time speech-to-text processing.
-📊 **Instant AI Feedback & Scoring:** After your session, receive a detailed evaluation for each answer, including an overall score out of 10, key feedback points, and the expected ideal answer.
-📚 **Extensive Questions Library:** Access a repository of over 350+ curated, real-world interview questions categorized across Frontend, Backend, Full Stack, Behavioral, Algorithms, C++, and Python.
-💡 **Interactive Answer Evaluation:** Practice directly from the library by typing your response and getting instant, intelligent evaluation and improvement tips.
-🚦 **Usage Quotas & Upgrade Paths:** Built-in tracking allows for 3 free mock interviews per day, with clear paths to upgrade for unlimited sessions.
+- 🎨 **Futuristic UI/UX:** Designed with a sleek, dark-themed premium aesthetic featuring smooth transitions, clean layouts, and polished visual styles.
+- 🤖 **AI-Tailored Mock Interviews:** Provide your target job position, tech stack, and experience level, and the system automatically generates precise, role-specific interview questions.
+- 📹 **Video & Voice Integration:** Answer questions naturally using either video (webcam enabled) or voice-only mode, with real-time speech-to-text processing.
+- 📊 **Instant AI Feedback & Scoring:** After your session, receive a detailed evaluation for each answer, including an overall score out of 10, key feedback points, and the expected ideal answer.
+- 📚 **Extensive Questions Library:** Access a repository of over 350+ curated, real-world interview questions categorized across Frontend, Backend, Full Stack, Behavioral, Algorithms, C++, and Python.
+- 💡 **Interactive Answer Evaluation:** Practice directly from the library by typing your response and getting instant, intelligent evaluation and improvement tips.
+- 🚦 **Usage Quotas & Upgrade Paths:** Built-in tracking allows for 3 free mock interviews per day, with clear paths to upgrade for unlimited sessions.
 
 ---
 
